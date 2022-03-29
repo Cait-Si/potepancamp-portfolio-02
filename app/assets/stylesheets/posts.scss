@@ -1,0 +1,16 @@
+table {
+  width: 50%;
+  border-collapse: collapse;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+table th, table td {
+  border: solid 1px black;
+  text-align: left;
+  padding: 3px;
+}
+
+.main_wrapper {
+  text-align: center;
+}

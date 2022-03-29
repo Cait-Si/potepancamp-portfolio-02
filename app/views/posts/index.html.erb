@@ -1,0 +1,59 @@
+<div class="main_wrapper">
+<h1>募集一覧</h1>
+</div>
+<% @posts.each do |post| %>
+  <table>
+    <tr>
+      <th>
+        題名：
+      </th>
+      <td colspan=3>
+        <%= post.title %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        人数：
+      </th>
+      <td>
+        <%= post.person %>
+      </td>
+      <th>
+        対象：
+      </th>
+      <td>
+        <%= post.level %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        日時：
+      </th>
+      <td>
+        <%= post.datetime.to_s(:datetime_jp) %>
+      </td>
+      <th>
+        場所：
+      </th>
+      <td>
+        <%= post.location %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        説明：
+      </th>
+      <td colspan=3>
+        <%= post.description %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        締切：
+      </th>
+      <td colspan=3>
+        <%= post.deadline.to_s(:datetime_jp) %>
+      </td>
+    </tr>
+  </table>
+<% end %>
