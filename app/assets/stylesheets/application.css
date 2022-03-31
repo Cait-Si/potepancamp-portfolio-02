@@ -1,15 +1,70 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require_self
  *= require posts.css
- */
+*/
+
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.header_wrapper {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  background-color: rgb(210, 245, 255);
+}
+
+.header_link {
+  font-size: 20px;
+  padding: 0px 100px;
+}
+
+.devise_form_wrapper {
+  width: 50%;
+  text-align: center;
+  border: solid 4px navy;
+  margin: 100px auto;
+  padding: 2%;
+}
+
+.devise_form_wrapper h1 {
+  display: inline-block;
+  width: 50%;
+  border-bottom: solid 2px navy;
+}
+
+.devise_form {
+  width: 50%;
+  margin: auto;
+}
+
+.devise_field {
+  text-align: left;
+}
+
+.devise_field input[type="text"] {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 15px;
+}
+
+.devise_field input[type="email"] {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 15px;
+}
+
+.devise_field input[type="password"] {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 15px;
+}
+
+.devise_form_submit input[type="submit"] {
+  width: 100%;
+  height: 30px;
+  margin: 10px 0px;
+}

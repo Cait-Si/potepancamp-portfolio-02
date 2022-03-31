@@ -1,0 +1,14 @@
+<div class="header_wrapper">
+  <% if user_signed_in? %>
+  <div class="header_link" >
+  <%= link_to "募集一覧", posts_index_path %>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+  </div>
+  <% else %>
+  <div class="header_link" >
+  <%= link_to "新規登録", new_user_registration_path %>
+  <%= link_to "ログイン", new_user_session_path %>
+  </div>
+  <% end %>
+
+</div>
