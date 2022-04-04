@@ -1,7 +1,8 @@
 <div class="header_wrapper">
   <% if user_signed_in? %>
   <div class="header_link" >
-  <%= link_to "募集一覧", posts_index_path %>
+  <%= link_to "募集一覧", posts_path %>
+  <%= link_to "募集作成", new_post_path %>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
   </div>
   <% else %>

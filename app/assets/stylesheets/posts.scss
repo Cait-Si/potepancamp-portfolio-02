@@ -14,3 +14,59 @@ table th, table td {
 .main_wrapper {
   text-align: center;
 }
+
+.title_span {
+  display: inline-block;
+  width: 35%;
+  font-size: 40px;
+  border-bottom: solid 2px navy;
+  margin-top: 15px;
+}
+
+.form_wrapper {
+  width: 50%;
+  text-align: center;
+  border: solid 4px navy;
+  margin: 100px auto;
+  padding: 2%;
+}
+
+.form {
+  width: 50%;
+  margin: auto;
+}
+
+.field {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.field input[type="text"] {
+  width: 100%;
+  height: 25px;
+}
+
+.field input[type= "number" ] {
+  width: 100%;
+  height: 25px;
+  text-align: center;
+}
+
+.field input[type="datetime-local"] {
+  width: 100%;
+  height: 25px;
+  text-align: center;
+}
+
+.field textarea {
+  width: 100%;
+  height: 100px;
+}
+
+.form_submit input[type="submit"] {
+  width: 100%;
+  height: 30px;
+  margin: 10px 0px;
+  border-color: rgb(210, 245, 255);
+  background-color: rgb(210, 245, 255);
+}

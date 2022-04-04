@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2022_03_25_033752) do
     t.string "level", null: false
     t.text "description", null: false
     t.datetime "deadline", null: false
-    t.boolean "active", null: false
+    t.boolean "active", default: true, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

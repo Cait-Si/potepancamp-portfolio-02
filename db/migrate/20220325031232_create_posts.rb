@@ -8,7 +8,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.string :level,       null: false
       t.text :description,   null: false
       t.datetime :deadline,  null: false
-      t.boolean :active,     null: false
+      t.boolean :active,     null: false, default: true
       t.references :user,    null: false, foreign_key: true
 
       t.timestamps
