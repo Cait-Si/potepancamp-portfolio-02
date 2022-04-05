@@ -1,28 +1,18 @@
 <div class="main_wrapper">
-  <span class="title_span">募集一覧</span>
-</div>
-<% @posts.each do |post| %>
+  <span class="title_span"><%= @post.title %></span>
   <table>
-    <tr>
-      <th>
-        題名：
-      </th>
-      <td colspan=3>
-        <%= link_to post.title, "posts/#{post.id}" %>
-      </td>
-    </tr>
     <tr>
       <th>
         人数：
       </th>
       <td>
-        <%= post.person %>
+        <%= @post.person %>
       </td>
       <th>
         対象：
       </th>
       <td>
-        <%= post.level %>
+        <%= @post.level %>
       </td>
     </tr>
     <tr>
@@ -30,7 +20,7 @@
         日時：
       </th>
       <td colspan=3>
-        <%= post.datetime.to_s(:datetime_jp) %>
+        <%= @post.datetime.to_s(:datetime_jp) %>
       </td>
     </tr>
     <tr>
@@ -38,7 +28,7 @@
         場所：
       </th>
       <td colspan=3>
-        <%= post.location %>
+        <%= @post.location %>
       </td>
     </tr>
     <tr>
@@ -46,8 +36,12 @@
         締切：
       </th>
       <td colspan=3>
-        <%= post.deadline.to_s(:datetime_jp) %>
+        <%= @post.deadline.to_s(:datetime_jp) %>
       </td>
     </tr>
   </table>
-<% end %>
+  <div class="description_wrapper">
+    <p>説明</p>
+    <div class="description_field"><%= @post.description %></div>
+  </div>
+</div>

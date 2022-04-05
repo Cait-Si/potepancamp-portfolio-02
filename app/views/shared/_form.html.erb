@@ -1,47 +1,47 @@
 <div class="form_wrapper">
-<%= form_with class: "form", model: @post do |f| %>
-  <div class="field">
-  <%= f.label :title, "題名" %>
-  <%= f.text_field :title %><br>
-  </div>
+  <%= form_with class: "form", model: @post do |f| %>
+    <div class="field">
+      <%= f.label :title, "題名" %>
+      <%= f.text_field :title %><br>
+    </div>
 
-  <div class="field">
-  <%= f.label :person, "人数" %>
-  <%= f.number_field :person, in: 1..100, step: 1 %>
-  </div>
+    <div class="field">
+      <%= f.label :person, "人数" %>
+      <%= f.number_field :person, in: 1..100, step: 1 %>
+     </div>
 
-  <div class="field">
-  <%= f.label :level, "対象" %><br>
-  <%= f.radio_button :level, "初心者歓迎" %>
-  <%= f.label :level, value: "初心者歓迎" %>
-  <%= f.radio_button :level, "経験者" %>
-  <%= f.label :level, value: "経験者" %>
-  <%= f.radio_button :level, "中級者以上" %>
-  <%= f.label :level, value: "中級者以上" %><br>
-  </div>
+    <div class="field">
+      <%= f.label :level, "対象" %><br>
+      <%= f.radio_button :level, "初心者歓迎" %>
+      <%= f.label :level, value: "初心者歓迎" %>
+      <%= f.radio_button :level, "経験者以上" %>
+      <%= f.label :level, value: "経験者以上" %>
+      <%= f.radio_button :level, "中級者以上" %>
+      <%= f.label :level, value: "中級者以上" %><br>
+    </div>
 
-  <div class="field">
-  <%= f.label :datetime, "日時" %>
-  <%= f.datetime_local_field :datetime %><br>
-  </div>
+    <div class="field">
+      <%= f.label :datetime, "日時" %>
+      <%= f.datetime_local_field :datetime %><br>
+    </div>
 
-  <div class="field">
-  <%= f.label :location, "場所" %>
-  <%= f.text_field :location %>
-  </div>
+    <div class="field">
+      <%= f.label :location, "場所" %>
+      <%= f.text_field :location %>
+    </div>
 
-  <div class="field">
-  <%= f.label :description, "説明" %>
-  <%= f.text_area :description %>
-  </div>
+    <div class="field">
+      <%= f.label :description, "説明" %>
+      <%= f.text_area :description %>
+    </div>
 
-  <div class="field">
-  <%= f.label :deadline, "締切" %>
-  <%= f.datetime_local_field :deadline %>
-  </div>
+    <div class="field">
+      <%= f.label :deadline, "締切" %>
+      <%= f.datetime_local_field :deadline %>
+    </div>
 
-  <div class="form_submit">
-    <%= f.submit "登録" %>
-  </div>
-<% end %>
+    <div class="form_submit">
+      <%= f.submit "登録" %>
+    </div>
+  <% end %>
 </div>

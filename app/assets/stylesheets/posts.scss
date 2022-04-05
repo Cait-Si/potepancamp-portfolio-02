@@ -11,6 +11,10 @@ table th, table td {
   padding: 3px;
 }
 
+table th {
+  width: 10%;
+}
+
 .main_wrapper {
   text-align: center;
 }
@@ -21,13 +25,14 @@ table th, table td {
   font-size: 40px;
   border-bottom: solid 2px navy;
   margin-top: 15px;
+  margin-bottom: 50px;
 }
 
 .form_wrapper {
   width: 50%;
   text-align: center;
   border: solid 4px navy;
-  margin: 100px auto;
+  margin: 0px auto 50px auto ;
   padding: 2%;
 }
 
@@ -69,4 +74,21 @@ table th, table td {
   margin: 10px 0px;
   border-color: rgb(210, 245, 255);
   background-color: rgb(210, 245, 255);
+}
+
+.description_wrapper {
+  display: inline-block;
+  width: 50%;
+}
+
+.description_wrapper p {
+  text-align: left;
+  font-size: large;
+  font-weight: bold;
+}
+
+.description_field {
+  text-align: left;
+  height: 150px;
+  border: 1px solid black;
 }
