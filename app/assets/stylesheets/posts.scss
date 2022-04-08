@@ -20,12 +20,11 @@ table th {
 }
 
 .title_span {
-  display: inline-block;
+  display: block;
   width: 35%;
   font-size: 40px;
   border-bottom: solid 2px navy;
-  margin-top: 15px;
-  margin-bottom: 50px;
+  margin: 15px auto 50px auto;
 }
 
 .form_wrapper {
@@ -74,6 +73,12 @@ table th {
   margin: 10px 0px;
   border-color: rgb(210, 245, 255);
   background-color: rgb(210, 245, 255);
+}
+
+.edit_delete_wrapper {
+  display: inline-block;
+  width: 50%;
+  text-align: right;
 }
 
 .description_wrapper {

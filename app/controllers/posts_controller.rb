@@ -22,6 +22,29 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to post_path
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
+      redirect_to posts_path, notice: "削除しました"
+    else
+      flash.now[:danger] = "削除に失敗しました"
+      render 'show'
+    end
+  end
+
   private
     def post_params
       params.require(:post).permit(:title, :person, :level, :datetime, :location, :description, :deadline)

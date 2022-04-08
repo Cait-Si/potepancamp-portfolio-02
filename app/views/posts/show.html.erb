@@ -1,5 +1,11 @@
 <div class="main_wrapper">
   <span class="title_span"><%= @post.title %></span>
+  <div class="edit_delete_wrapper">
+  <% if @post.user_id == current_user.id %>
+      <%= link_to "編集", "#{@post.id}/edit"%>
+      <%= link_to "削除", "#{@post.id}", method: :delete %>
+  <% end %>
+  </div>
   <table>
     <tr>
       <th>
