@@ -1,0 +1,16 @@
+<% if current_user == message.user%>
+  <div class="current_user_message_wrapper">
+    <div class="current_user_message">
+      <%= message.content %>
+    </div>
+    <span class="message_created"><%= message.created_at.to_s(:datetime_jp) %></span>
+  </div>
+<% else %>
+  <div class="other_user_message_wrapper">
+    <span class="message_created"><%= message.user.name %></span>
+    <div class="other_user_message">
+      <%= message.content %>
+    </div>
+    <span class="message_created"><%= message.created_at.to_s(:datetime_jp) %></span>
+  </div>
+<% end %>

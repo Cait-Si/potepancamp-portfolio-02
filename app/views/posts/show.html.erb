@@ -1,10 +1,11 @@
 <div class="main_wrapper">
   <span class="title_span"><%= @post.title %></span>
   <div class="edit_delete_wrapper">
-  <% if @post.user_id == current_user.id %>
+    作成者:<%= @post.user.name %>
+    <% if @post.user_id == current_user.id %>
       <%= link_to "編集", "#{@post.id}/edit"%>
       <%= link_to "削除", "#{@post.id}", method: :delete %>
-  <% end %>
+    <% end %>
   </div>
   <table>
     <tr>
@@ -49,5 +50,14 @@
   <div class="description_wrapper">
     <p>説明</p>
     <div class="description_field"><%= @post.description %></div>
+  </div>
+  <div class="message_wrapper">
+    <p>お問い合わせチャット</p>
+    <div id='messages'>
+      <% @messages.each do |message|%>
+        <%= render "shared/message", message: message %>
+      <% end %>
+    </div>
+    <textarea data-behavior="room_speaker" data-post_id="<%= @post.id %>" placeholder="メッセージを入力" ></textarea>
   </div>
 </div>

@@ -68,3 +68,64 @@ body {
   height: 30px;
   margin: 10px 0px;
 }
+
+.message_wrapper {
+  display: inline-block;
+  width: 50%;
+}
+
+#messages {
+  height: 200px;
+  overflow-y: scroll;
+  border: 1px solid black;
+  margin: 20px 0;
+}
+
+.message_wrapper p {
+  text-align: left;
+  font-size: large;
+  font-weight: bold;
+}
+
+.message_wrapper textarea {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.current_user_message_wrapper {
+  text-align: right;
+  margin-right: 7px;
+  margin-bottom: 10px;
+}
+
+.current_user_message {
+  display: inline-block;
+  max-width: 50%;
+  text-align: left;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgb(210, 245, 255);
+  word-break: break-all;
+  padding: 8px;
+}
+
+.other_user_message_wrapper {
+  text-align: left;
+  margin-left: 7px;
+  margin-bottom: 10px;
+}
+
+.other_user_message {
+  display: inline-block;
+  max-width: 50%;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgb(189, 255, 192);
+  word-break: break-all;
+  padding: 8px;
+}
+
+.message_created {
+  display: block;
+  font-size: 3px;
+}

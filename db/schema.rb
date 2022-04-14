@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2022_03_25_033752) do
 
   create_table "messages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "content", null: false
+    t.text "content", null: false
     t.bigint "user_id", null: false
     t.bigint "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
