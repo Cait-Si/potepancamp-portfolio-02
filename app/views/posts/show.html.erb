@@ -1,7 +1,7 @@
 <div class="main_wrapper">
   <span class="title_span"><%= @post.title %></span>
   <div class="edit_delete_wrapper">
-    作成者:<%= @post.user.name %>
+    作成者：<%= @post.user.name %>
     <% if @post.user_id == current_user.id %>
       <%= link_to "編集", "#{@post.id}/edit"%>
       <%= link_to "削除", "#{@post.id}", method: :delete %>
@@ -58,6 +58,6 @@
         <%= render "shared/message", message: message %>
       <% end %>
     </div>
-    <textarea data-behavior="room_speaker" data-post_id="<%= @post.id %>" placeholder="メッセージを入力" ></textarea>
+    <textarea data-behavior="room_speaker" class="room_message_form_textarea" data-post_id="<%= @post.id %>" placeholder="メッセージを入力(Shift+Enterで送信します)" ></textarea>
   </div>
 </div>

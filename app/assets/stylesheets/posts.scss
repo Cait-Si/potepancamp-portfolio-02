@@ -27,6 +27,23 @@ table th {
   margin: 15px auto 50px auto;
 }
 
+.user_name_span {
+  display: inline-block;
+  width: 50%;
+  text-align: right;
+}
+
+.search_text {
+  width: 20%;
+  height: 30px;
+  margin-bottom: 20px;
+}
+
+.search_submit {
+  width: 5%;
+  height: 30px;
+}
+
 .form_wrapper {
   width: 50%;
   text-align: center;

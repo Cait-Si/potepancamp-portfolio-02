@@ -1,7 +1,11 @@
 <div class="main_wrapper">
   <span class="title_span">募集一覧</span>
-</div>
+  <%= form_with url: search_path, local: true, method: :get do |f| %>
+    <%= f.text_field :keyword, class: "search_text", placeholder: "題名か場所で検索" %>
+    <%= f.submit "検索", class: "search_submit" %>
+  <% end %>
 <% @posts.each do |post| %>
+  <span class="user_name_span">作成者：<%= post.user.name %></span>
   <table>
     <tr>
       <th>
@@ -51,3 +55,4 @@
     </tr>
   </table>
 <% end %>
+</div>

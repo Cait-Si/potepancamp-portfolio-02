@@ -41,9 +41,17 @@ class PostsController < ApplicationController
     if @post.destroy
       redirect_to posts_path, notice: "削除しました"
     else
-      flash.now[:danger] = "削除に失敗しました"
+      flash.now[:alert] = "削除に失敗しました"
       render 'show'
     end
+  end
+
+  def search
+    @posts = Post.where('title LIKE(?) or location LIKE(?)', "%#{params[:keyword]}%", "%#{params[:keyword]}%").order(datetime: :desc)
+    if @posts.empty?
+      flash.now[:alert] = "該当する検索結果がありませんでした"
+    end
+    render 'index'
   end
 
   private

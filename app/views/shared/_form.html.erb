@@ -1,5 +1,6 @@
 <div class="form_wrapper">
   <%= form_with class: "form", model: @post do |f| %>
+    <%= render "devise/shared/error_messages", resource: @post %>
     <div class="field">
       <%= f.label :title, "題名" %>
       <%= f.text_field :title %><br>
@@ -8,7 +9,7 @@
     <div class="field">
       <%= f.label :person, "人数" %>
       <%= f.number_field :person, in: 1..100, step: 1 %>
-     </div>
+    </div>
 
     <div class="field">
       <%= f.label :level, "対象" %><br>

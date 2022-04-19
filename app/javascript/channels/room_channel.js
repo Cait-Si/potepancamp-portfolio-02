@@ -21,8 +21,8 @@ const appRoom = consumer.subscriptions.create("RoomChannel", {
   }
 });
 
-window.addEventListener("keypress", function(e) {
-  if (e.key === "Enter") {
+$(document).on("keydown", ".room_message_form_textarea",  function(e) {
+  if (e.key === "Enter" && e.shiftKey === true) {
     const post_id = $('textarea').data('post_id')
     appRoom.speak(e.target.value, post_id);
     e.target.value = '';
