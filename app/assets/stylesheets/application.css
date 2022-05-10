@@ -1,6 +1,7 @@
 /*
  *= require_self
  *= require posts.css
+ *= require top.css
 */
 
 body {
@@ -9,17 +10,17 @@ body {
 }
 
 .header_wrapper {
-  width: 100%;
+  width: 90%;
   height: 100px;
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
   align-items: center;
   background-color: rgb(210, 245, 255);
+  padding: 0 5%;
 }
 
 .header_link {
   font-size: 20px;
-  padding: 0px 100px;
 }
 
 .devise_form_wrapper {

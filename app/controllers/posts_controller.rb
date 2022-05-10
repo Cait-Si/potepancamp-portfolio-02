@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @posts = Post.order(datetime: :desc)
+    @posts = Post.by_date
   end
 
   def new
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.where('title LIKE(?) or location LIKE(?)', "%#{params[:keyword]}%", "%#{params[:keyword]}%").order(datetime: :desc)
+    @posts = Post.where('title LIKE(?) or location LIKE(?)', "%#{params[:keyword]}%", "%#{params[:keyword]}%").by_date
     if @posts.empty?
       flash.now[:alert] = "該当する検索結果がありませんでした"
     end
