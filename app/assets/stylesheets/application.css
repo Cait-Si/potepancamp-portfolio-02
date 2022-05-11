@@ -70,6 +70,10 @@ body {
   margin: 10px 0px;
 }
 
+.li_no_deco {
+  text-align: initial;
+}
+
 .message_wrapper {
   display: inline-block;
   width: 50%;
