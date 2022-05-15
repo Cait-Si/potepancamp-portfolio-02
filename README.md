@@ -1,24 +1,39 @@
-# README
+## アプリケーション名
+「今これるヒト」
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリケーション概要
+土壇場でのキャンセルにより困っている人と体を動かしたい人や時間が空いている人を結びつけるアプリです。
 
-Things you may want to cover:
+## URL
 
-* Ruby version
 
-* System dependencies
+## テスト用アカウント
+メールアドレス：testuser@test.com
+パスワード：password
 
-* Configuration
+## 利用方法
+募集者：アカウントを登録し後、募集作成から募集の詳細を入力します。
+参加者：アカウントを登録し後、募集一覧より希望の募集を探します。
+気になる募集があったら、お問い合わせチャットより参加希望の連絡をします。
 
-* Database creation
+## ER図
+必要なカラムは以下の通りです。
+![ja](/app/assets/images/ER図(ja).PNG)
 
-* Database initialization
+実際に作成したカラムは以下の通りです。
+![en](/app/assets/images/ER図(en).PNG)
 
-* How to run the test suite
+## 機能一覧
+- 一覧表示機能
+- 詳細表示機能
+- 登録機能
+- 編集機能
+- 削除機能
+- サインアップ機能
+- ログイン機能
+- ログアウト機能
+- 検索機能
+- チャット機能
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## こだわりポイント
+リアルタイムでのチャット機能を追加した点です。
