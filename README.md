@@ -5,7 +5,7 @@
 土壇場でのキャンセルにより困っている人と体を動かしたい人や時間が空いている人を結びつけるアプリです。
 
 ## URL
-
+https://potepancamp-portfolio-02.herokuapp.com
 
 ## テスト用アカウント
 メールアドレス：testuser@test.com
