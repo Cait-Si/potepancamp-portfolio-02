@@ -5,6 +5,4 @@ test:
   adapter: test
 
 production:
-  adapter: redis
-  url: <%= ENV["REDIS_URL"] %>
-  channel_prefix: potepancamp_portfolio_02_production
+  adapter: async
