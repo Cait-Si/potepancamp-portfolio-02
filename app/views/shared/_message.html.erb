@@ -1,4 +1,4 @@
-<% if current_user == message.user%>
+<% if message.user.id  == current_user.id %>
   <div class="current_user_message_wrapper">
     <div class="current_user_message">
       <%= simple_format(message.content) %>
