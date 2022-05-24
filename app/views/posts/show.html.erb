@@ -1,5 +1,6 @@
 <div class="main_wrapper">
   <span class="title_span"><%= @post.title %></span>
+  <%= image_tag @post.post_image.url, class: "show_post_img" %>
   <div class="edit_delete_wrapper">
     作成者：<%= @post.user.name %>
     <% if @post.user_id == current_user.id %>

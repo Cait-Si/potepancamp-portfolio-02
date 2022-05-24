@@ -4,12 +4,20 @@
     <%= f.text_field :keyword, class: "search_text", placeholder: "題名か場所で検索" %>
     <%= f.submit "検索", class: "search_submit" %>
   <% end %>
+</div>
+<div class="index_wrapper">
 <% @posts.each do |post| %>
+  <div class="table_wrapper">
   <span class="user_name_span">作成者：<%= post.user.name %></span>
   <table>
     <tr>
+      <td colspan=4>
+        <%= link_to image_tag(post.post_image.url), "posts/#{post.id}" %>
+      </td>
+    </tr>
+    <tr>
       <th>
-        題名：
+        題名
       </th>
       <td colspan=3>
         <%= link_to post.title, "posts/#{post.id}" %>
@@ -17,13 +25,13 @@
     </tr>
     <tr>
       <th>
-        人数：
+        人数
       </th>
       <td>
         <%= post.person %>
       </td>
       <th>
-        対象：
+        対象
       </th>
       <td>
         <%= post.level %>
@@ -31,7 +39,7 @@
     </tr>
     <tr>
       <th>
-        日時：
+        日時
       </th>
       <td colspan=3>
         <%= post.datetime.to_s(:datetime_jp) %>
@@ -39,7 +47,7 @@
     </tr>
     <tr>
       <th>
-        場所：
+        場所
       </th>
       <td colspan=3>
         <%= post.location %>
@@ -47,12 +55,13 @@
     </tr>
     <tr>
       <th>
-        締切：
+        締切
       </th>
       <td colspan=3>
         <%= post.deadline.to_s(:datetime_jp) %>
       </td>
     </tr>
   </table>
+  </div>
 <% end %>
 </div>

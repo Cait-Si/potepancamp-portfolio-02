@@ -1,8 +1,38 @@
+.index_wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 100px;
+}
+
+.table_wrapper {
+  width: 30%;
+  margin: 20px;
+}
+
+.index_wrapper::after {
+  display: block;
+  content: "";
+  width: 30%;
+  margin: 20px;
+}
+
+.table_wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
 table {
   width: 50%;
   border-collapse: collapse;
   margin: auto;
   margin-bottom: 20px;
+}
+
+table img {
+  width: 100%;
+  object-fit: cover;
 }
 
 table th, table td {
@@ -29,8 +59,7 @@ table th {
 }
 
 .user_name_span {
-  display: inline-block;
-  width: 50%;
+  display: block;
   text-align: right;
 }
 
@@ -93,6 +122,13 @@ table th {
   background-color: rgb(210, 245, 255);
 }
 
+.show_post_img {
+  display: inline;
+  width: 50%;
+  height: 400px;
+  margin-bottom: 10px;
+}
+
 .edit_delete_wrapper {
   display: inline-block;
   width: 50%;
@@ -114,4 +150,21 @@ table th {
   text-align: left;
   height: 150px;
   border: 1px solid black;
+}
+
+.post_img {
+  height: 60%;
+  width: 60%;
+  object-fit: cover;
+}
+
+#post_img_prev {
+  height: 60%;
+  width: 60%;
+  object-fit: cover;
+  border: 1px solid black;
+}
+
+.hidden {
+  display: none;
 }

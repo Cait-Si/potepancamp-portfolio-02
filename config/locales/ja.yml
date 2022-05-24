@@ -10,6 +10,7 @@ ja:
         level: 対象
         description: 説明
         deadline: 締切
+        post_image: 画像
     models:
       post: 募集
     errors:

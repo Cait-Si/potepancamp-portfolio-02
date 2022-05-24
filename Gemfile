@@ -25,6 +25,9 @@ gem 'devise'
 gem 'devise-i18n'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+# Use carrierwave to images upload
+gem 'carrierwave'
+gem 'mini_magick'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

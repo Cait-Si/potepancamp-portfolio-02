@@ -2,9 +2,11 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :messages
 
-  validates :title, :person, :datetime, :location, :level, :description, :deadline, presence: true
+  validates :title, :person, :datetime, :location, :level, :description, :deadline, :post_image, presence: true
   validate :date_before_start
   validate :date_before_finish
+
+  mount_uploader :post_image, PostImageUploader
 
   scope :by_date, -> { where(datetime: Date.today..).order(datetime: :desc) }
 

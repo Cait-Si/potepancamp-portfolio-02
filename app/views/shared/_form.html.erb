@@ -41,6 +41,17 @@
       <%= f.datetime_local_field :deadline %>
     </div>
 
+    <div class="field">
+      <%= f.label :post_image, "画像" %>
+      <img id="post_img_prev" src="#" class="hidden" />
+      <% if @post.post_image.url.nil? %>
+        <div class="post_default_img"></div>
+      <% else %>
+        <%= image_tag post.post_image.url, class: "post_img", id: "post_img" %>
+      <% end %>
+      <%= f.file_field :post_image, id: "post_image_upload" %>
+    </div>
+
     <div class="form_submit">
       <%= f.submit "登録" %>
     </div>
