@@ -53,12 +53,12 @@
     <div class="description_field"><%= @post.description %></div>
   </div>
   <div class="message_wrapper">
-    <p>お問い合わせチャット</p>
-    <div id='messages'>
+    <p>質問・コメント</p>
+      <div id= <%= "messages#{@post.id}" %> >
       <% @messages.each do |message|%>
         <%= render "shared/message", message: message %>
       <% end %>
-    </div>
+      </div>
     <textarea data-behavior="room_speaker" class="room_message_form_textarea" data-post_id="<%= @post.id %>" placeholder="メッセージを入力(Shift+Enterで送信します)" ></textarea>
   </div>
 </div>

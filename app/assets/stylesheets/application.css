@@ -79,7 +79,7 @@ body {
   width: 50%;
 }
 
-#messages {
+div[id^="messages"] {
   height: 200px;
   overflow-y: scroll;
   border: 1px solid black;
@@ -97,48 +97,30 @@ body {
   margin-bottom: 30px;
 }
 
-.current_user_message_wrapper {
-  text-align: right;
-  margin: 7px 7px 10px 0;
-}
-
-.current_user_message {
-  display: inline-block;
-  max-width: 50%;
-  text-align: left;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: rgb(210, 245, 255);
-  word-break: break-all;
-  padding: 8px;
-}
-
-.current_user_message p {
-  font-size: 15px;
-  margin: 0;
-}
-
-.other_user_message_wrapper {
+.user_message_wrapper {
   text-align: left;
   margin: 7px 0 10px 7px;
 }
 
-.other_user_message {
+.user_message {
   display: inline-block;
-  max-width: 50%;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: rgb(189, 255, 192);
   word-break: break-all;
   padding: 8px;
 }
 
-.other_user_message p {
+.user_message p {
   font-size: 15px;
   margin: 0;
 }
 
-.message_created {
+.message_info {
   display: block;
   font-size: 3px;
+  border-bottom: 1px solid black;
+  margin-bottom: 3px;
+}
+
+.message_created {
+  font-size: 15px;
+  margin-right: 3px;
 }

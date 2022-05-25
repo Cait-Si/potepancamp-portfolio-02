@@ -11,7 +11,9 @@ const appRoom = consumer.subscriptions.create("RoomChannel", {
 
   received(data) {
     // Called when there's incoming data on the websocket for this channel
-    const messages = document.getElementById('messages');
+    const msg_post_id = data['message'].match(/"\d*[0-9]"/);
+    const post_id = msg_post_id[0].replace(/"/g, "");
+    const messages = document.getElementById("messages"+ post_id);
     messages.insertAdjacentHTML('beforeend', data['message']);
     messages.scrollTo(0, messages.scrollHeight);
   },

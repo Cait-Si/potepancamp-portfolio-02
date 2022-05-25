@@ -1,16 +1,10 @@
-<% if message.user.id  == current_user.id %>
-  <div class="current_user_message_wrapper">
-    <div class="current_user_message">
-      <%= simple_format(message.content) %>
-    </div>
-    <span class="message_created"><%= message.created_at.to_s(:datetime_jp) %></span>
-  </div>
-<% else %>
-  <div class="other_user_message_wrapper">
+<div class="user_message_wrapper">
+  <div class="message_info">
     <span class="message_created"><%= message.user.name %></span>
-    <div class="other_user_message">
-      <%= simple_format(message.content) %>
-    </div>
-    <span class="message_created"><%= message.created_at.to_s(:datetime_jp) %></span>
+    <%= message.created_at.to_s(:datetime_jp) %>
   </div>
-<% end %>
+  <div class="user_message">
+    <%= simple_format(message.content) %>
+  </div>
+</div>
+<%= hidden_field_tag :post_id, message.post_id %>
