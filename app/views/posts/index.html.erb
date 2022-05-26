@@ -38,12 +38,18 @@
       </td>
     </tr>
     <tr>
-      <th>
+      <th rowspan=2>
         日時
       </th>
-      <td colspan=3>
-        <%= post.datetime.to_s(:datetime_jp) %>
+      <td colspan=3 class="bottom_border_none">
+          <%= post.datetime.to_s(:datetime_jp) %>
       </td>
+    </tr>
+    <tr>
+      <td colspan=3 class="top_border_none">
+        〜<%= post.end_datetime.to_s(:datetime_jp) %>
+      </td>
+    </tr>
     </tr>
     <tr>
       <th>

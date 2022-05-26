@@ -44,6 +44,14 @@ table th, table td {
 table th {
   width: 10%;
 }
+.bottom_border_none {
+  border-bottom: none;
+}
+
+
+.top_border_none {
+  border-top: none;
+}
 
 .main_wrapper {
   text-align: center;
@@ -52,8 +60,8 @@ table th {
 
 .title_span {
   display: block;
-  width: 35%;
-  font-size: 40px;
+  width: 40%;
+  font-size: 35px;
   border-bottom: solid 2px navy;
   margin: 15px auto 50px auto;
 }

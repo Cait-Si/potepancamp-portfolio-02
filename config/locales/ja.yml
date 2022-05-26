@@ -5,7 +5,8 @@ ja:
       post:
         title: 題名
         person: 人数
-        datetime: 日時
+        datetime: 開始日時
+        end_datetime: 終了日時
         location: 場所
         level: 対象
         description: 説明

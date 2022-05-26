@@ -12,6 +12,7 @@
       title: "test_title_#{ m+1 }",
       person: n+1,
       datetime: Time.new(2022, 9, m+2, 12, 8),
+      end_datetime: Time.new(2022, 9, m+2, 15, 8),
       location: "test_location_#{ m+1 }",
       level: "初心者歓迎",
       description: "test_discription_#{ m+1 }",

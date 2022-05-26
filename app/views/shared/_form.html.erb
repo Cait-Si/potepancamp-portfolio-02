@@ -22,8 +22,13 @@
     </div>
 
     <div class="field">
-      <%= f.label :datetime, "日時" %>
+      <%= f.label :datetime, "開始日時" %>
       <%= f.datetime_local_field :datetime %><br>
+    </div>
+
+    <div class="field">
+      <%= f.label :end_datetime, "終了日時" %>
+      <%= f.datetime_local_field :end_datetime %><br>
     </div>
 
     <div class="field">
@@ -47,7 +52,7 @@
       <% if @post.post_image.url.nil? %>
         <div class="post_default_img"></div>
       <% else %>
-        <%= image_tag post.post_image.url, class: "post_img", id: "post_img" %>
+        <%= image_tag @post.post_image.url, class: "post_img", id: "post_img" %>
       <% end %>
       <%= f.file_field :post_image, id: "post_image_upload" %>
     </div>

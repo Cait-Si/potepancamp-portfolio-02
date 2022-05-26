@@ -2,9 +2,10 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :messages
 
-  validates :title, :person, :datetime, :location, :level, :description, :deadline, :post_image, presence: true
+  validates :title, :person, :datetime, :location, :level, :description, :deadline, :post_image, :end_datetime, presence: true
   validate :date_before_start
   validate :date_before_finish
+  validate :date_before_deadline
 
   mount_uploader :post_image, PostImageUploader
 
@@ -16,7 +17,12 @@ class Post < ApplicationRecord
   end
 
   def date_before_finish
+    return if datetime.blank? || end_datetime.blank?
+    errors.add(:end_datetime, "は開始日時以降のものを選択してください。") if end_datetime < datetime
+  end
+
+  def date_before_deadline
     return if datetime.blank? || deadline.blank?
-    errors.add(:deadline, "は開始日前のものを選択してください") if datetime < deadline
+    errors.add(:deadline, "は開始日時前のものを選択してください") if datetime < deadline
   end
 end
