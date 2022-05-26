@@ -1,11 +1,21 @@
 <div class="main_wrapper">
   <span class="title_span"><%= @post.title %></span>
-  <%= image_tag @post.post_image.url, class: "show_post_img" %>
+  <div class="post_img_wrapper">
+    <% if @post.finished %>
+      <span class="finished_mark">募集終了</span>
+    <% end %>
+    <%= image_tag @post.post_image.url %>
+  </div>
   <div class="edit_delete_wrapper">
     作成者：<%= @post.user.name %>
     <% if @post.user_id == current_user.id %>
       <%= link_to "編集", "#{@post.id}/edit"%>
       <%= link_to "削除", "#{@post.id}", method: :delete %>
+      <% if @post.finished %>
+        <%= link_to '募集中に戻す', post_path(@post.id, post: {finished: false}), method: :put %>
+      <% else %>
+        <%= link_to '募集終了にする', post_path(@post.id, post: {finished: true}), method: :put %>
+      <% end %>
     <% end %>
   </div>
   <table>

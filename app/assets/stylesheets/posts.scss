@@ -48,9 +48,13 @@ table th {
   border-bottom: none;
 }
 
-
 .top_border_none {
   border-top: none;
+}
+
+.td_img {
+  position: relative;
+  padding: 0;
 }
 
 .main_wrapper {
@@ -130,11 +134,41 @@ table th {
   background-color: rgb(210, 245, 255);
 }
 
-.show_post_img {
-  display: inline;
+.post_img_wrapper {
+  position: relative;
+  display: inline-block;
   width: 50%;
   height: 400px;
   margin-bottom: 10px;
+}
+
+.table_wrapper .post_img_wrapper {
+  position: relative;
+}
+
+.post_img_wrapper img {
+  width: 100%;
+  height: auto;
+}
+
+.finished_mark {
+  position: absolute;
+  text-align: center;
+  vertical-align:bottom;
+  width: 20%;
+  height: 50px;
+  line-height: 50px;
+  top: 0;
+  left: 0;
+  font-size: 20px;
+  border-radius: 50%;
+  color: white;
+  background: red;
+  padding:0 5px;
+}
+
+.td_img .finished_mark {
+  font-size: small;
 }
 
 .edit_delete_wrapper {

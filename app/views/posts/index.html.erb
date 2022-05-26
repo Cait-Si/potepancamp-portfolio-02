@@ -11,7 +11,10 @@
   <span class="user_name_span">作成者：<%= post.user.name %></span>
   <table>
     <tr>
-      <td colspan=4>
+      <td colspan=4 class="td_img">
+        <% if post.finished %>
+          <span class="finished_mark">募集終了</span>
+        <% end %>
         <%= link_to image_tag(post.post_image.url), "posts/#{post.id}" %>
       </td>
     </tr>
