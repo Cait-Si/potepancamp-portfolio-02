@@ -1,3 +1,37 @@
+.serch_form_wrapper {
+  display: block;
+  width: 40%;
+  border: 1px solid navy;
+  margin: 15px auto 50px auto;
+  padding: 1%;
+}
+
+.serch_form_wrapper label {
+  display: inline-block;
+  text-align: left;
+}
+
+.sort_wrapper {
+  margin: 20px 100px;
+}
+
+.search_text {
+  width: 55%;
+  height: 30px;
+}
+
+.search_submit {
+  width: 20%;
+  height: 30px;
+}
+
+.sort_wrapper a {
+  text-decoration-line: none;
+  border: 1px solid navy;
+  border-radius: 60%;
+  padding: 20px 10px
+}
+
 .index_wrapper {
   display: flex;
   justify-content: space-between;
@@ -73,17 +107,6 @@ table th {
 .user_name_span {
   display: block;
   text-align: right;
-}
-
-.search_text {
-  width: 20%;
-  height: 30px;
-  margin-bottom: 20px;
-}
-
-.search_submit {
-  width: 5%;
-  height: 30px;
 }
 
 .form_wrapper {

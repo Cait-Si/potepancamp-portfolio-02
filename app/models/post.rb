@@ -9,7 +9,7 @@ class Post < ApplicationRecord
 
   mount_uploader :post_image, PostImageUploader
 
-  scope :by_date, -> { where(datetime: Date.today..).order(datetime: :desc) }
+  scope :by_date, -> { where(datetime: Date.today..).order(datetime: :asc) }
 
   def date_before_start
     return if datetime.blank?

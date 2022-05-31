@@ -1,9 +1,25 @@
 <div class="main_wrapper">
   <span class="title_span">募集一覧</span>
-  <%= form_with url: search_path, local: true, method: :get do |f| %>
-    <%= f.text_field :keyword, class: "search_text", placeholder: "題名か場所で検索" %>
+  <%= search_form_for @q, url: search_path, html: { class: "serch_form_wrapper" }  do |f| %>
+    <div class="field">
+    <%= f.label :location_cont, "都道府県から選択" %>
+    <%= f.collection_select(:location_cont, Prefecture.all, :key, :name ) %><br>
+    </div>
+    <div class="field">
+    <%= f.label :datetime_gteq, "開催日時から選択" %>
+    <%= f.date_field :datetime_gteq, include_blank: true, min: Date.today %>〜
+    <%= f.date_field :datetime_lteq_end_of_day, include_blank: true, min: Date.today %><br>
+    </div>
+    <div class="field" >
+    <%= f.label :title_or_location_cont, "題名か場所で検索" %>
+    <%= f.search_field :title_or_location_cont, class: "search_text" %>
+    </div>
     <%= f.submit "検索", class: "search_submit" %>
   <% end %>
+</div>
+<div class="sort_wrapper">
+  <%= sort_link(@q, :datetime, "開始日順",default_order: :asc) %>
+  <%= sort_link(@q, :created_at, "新着順") %>
 </div>
 <div class="index_wrapper">
 <% @posts.each do |post| %>
