@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_q, only: [:index, :search]
   def index
-    @posts = Post.by_date
+    @posts = @q.result.by_date
   end
 
   def new
@@ -57,10 +57,10 @@ class PostsController < ApplicationController
 
   private
     def set_q
-      @q = Post.ransack(params[:q])
+      @q = Post.includes(:user).ransack(params[:q])
     end
 
     def post_params
-      params.require(:post).permit(:title, :person, :level, :datetime, :location, :description, :deadline, :post_image, :end_datetime, :finished)
+      params.require(:post).permit(:title, :person, :level, :datetime, :location, :description, :deadline, :post_image, :end_datetime, :finished, :post_image_cache)
     end
 end

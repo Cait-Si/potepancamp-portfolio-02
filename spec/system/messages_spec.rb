@@ -22,18 +22,14 @@ describe 'メッセージ管理機能', type: :system do
   describe 'メッセージ表示機能' do
     let(:login_user) { user_a }
 
-    context 'ログイン中のユーザーのメッセージの場合' do
-      it 'チャット内の右側に表示される' do
-        expect(page).to have_selector '.current_user_message', text: 'おはようございます'
-        expect(page).to have_selector '.message_created', text: message_a.created_at.to_s(:datetime_jp)
-      end
-    end
-
-    context 'ログイン中のユーザー以外のメッセージの場合' do
-      it 'チャット内左側に表示される' do
+    context '作成済みのメッセージの表示' do
+      it 'チャット内に表示される' do
+        expect(page).to have_selector '.message_created', text: message_a.user.name
+        expect(page).to have_selector '.user_message', text: 'おはようございます'
+        expect(page).to have_selector '.message_info', text: message_a.created_at.to_s(:datetime_jp)
         expect(page).to have_selector '.message_created', text: message_b.user.name
-        expect(page).to have_selector '.other_user_message', text: 'こんにちは'
-        expect(page).to have_selector '.message_created', text: message_b.created_at.to_s(:datetime_jp)
+        expect(page).to have_selector '.user_message', text: 'こんにちは'
+        expect(page).to have_selector '.message_info', text: message_b.created_at.to_s(:datetime_jp)
       end
     end
   end
@@ -49,7 +45,7 @@ describe 'メッセージ管理機能', type: :system do
       let(:message) { '新規メッセージ_A' }
 
       it 'チャット内の右側側に表示される' do
-        expect(page).to have_selector '.current_user_message', text: '新規メッセージ_A'
+        expect(page).to have_selector '.user_message', text: '新規メッセージ_A'
       end
     end
   end

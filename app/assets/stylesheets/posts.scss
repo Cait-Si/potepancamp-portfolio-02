@@ -159,19 +159,15 @@ table th {
 
 .post_img_wrapper {
   position: relative;
-  display: inline-block;
-  width: 50%;
-  height: 400px;
-  margin-bottom: 10px;
-}
-
-.table_wrapper .post_img_wrapper {
-  position: relative;
+  display: block;
+  width: 45%;
+  height: 350px;
+  margin: 0 auto 20px auto;
 }
 
 .post_img_wrapper img {
-  width: 100%;
-  height: auto;
+  width: 90%;
+  height: 350px;
 }
 
 .finished_mark {

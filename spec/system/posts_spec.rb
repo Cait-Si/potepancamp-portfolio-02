@@ -5,7 +5,7 @@ describe '募集管理機能', type: :system do
   let(:user_b) { FactoryBot.create(:user, name: 'userB', email: 'userb@test.com') }
   let!(:post_a) { FactoryBot.create(:post, title: 'Aの募集', user: user_a) }
   let!(:post_b) { FactoryBot.create(:post, title: 'Bの募集', user: user_b) }
-  let!(:post_yesterday) { FactoryBot.create(:post, :skip_validation, title: '日時が昨日の募集', datetime: Time.now.yesterday, user: user_a) }
+  let!(:post_yesterday) { FactoryBot.create(:post, :skip_validation, title: '日時が昨日の募集', datetime: Time.now.yesterday, end_datetime: Time.now.yesterday + 2.hours, user: user_a) }
 
   before do
     visit root_path
@@ -27,6 +27,7 @@ describe '募集管理機能', type: :system do
       it '作成した募集が表示される' do
         expect(page).to have_content 'Aの募集'
         expect(page).to have_content 'Bの募集'
+        expect(page).to have_selector ("img[src$='top_person.png']")
       end
 
       it '日時が過ぎた募集が表示されない' do
@@ -38,36 +39,71 @@ describe '募集管理機能', type: :system do
   describe '詳細機能' do
     before do
       visit post_path(post_a)
+      if finished
+        click_link '募集終了にする'
+      end
     end
 
-    context 'userAがログインしているとき' do
+    context 'userAがログインし、募集中の場合' do
       let(:login_user) { user_a }
+      let(:finished) { false }
 
       it 'userAが作成した募集が表示される' do
         expect(page).to have_content 'Aの募集'
         expect(page).to have_content '1'
         expect(page).to have_content '初心者歓迎'
         expect(page).to have_content (Time.now.tomorrow).to_s(:datetime_jp)
+        expect(page).to have_content (Time.now.tomorrow + 2.hours).to_s(:datetime_jp)
         expect(page).to have_content 'test_location'
         expect(page).to have_content 'test_discription'
         expect(page).to have_content Time.now.to_s(:datetime_jp)
+        expect(page).to have_selector ("img[src$='top_person.png']")
       end
 
       it 'ログイン者と募集作成者が同じ場合' do
         expect(page).to have_content '編集'
         expect(page).to have_content '削除'
+        expect(page).to have_content '募集終了にする'
+      end
+    end
+
+    context 'userAがログインし、募集終了の場合' do
+      let(:login_user) { user_a }
+      let(:finished) { true }
+
+      it 'userAが作成した募集が表示される' do
+        expect(page).to have_content 'Aの募集'
+        expect(page).to have_content '1'
+        expect(page).to have_content '初心者歓迎'
+        expect(page).to have_content (Time.now.tomorrow).to_s(:datetime_jp)
+        expect(page).to have_content (Time.now.tomorrow + 2.hours).to_s(:datetime_jp)
+        expect(page).to have_content 'test_location'
+        expect(page).to have_content 'test_discription'
+        expect(page).to have_content Time.now.to_s(:datetime_jp)
+        expect(page).to have_selector ("img[src$='top_person.png']")
+        expect(page).to have_selector '.finished_mark', text: '募集終了'
+      end
+
+      it 'ログイン者と募集作成者が同じ場合' do
+        expect(page).to have_content '編集'
+        expect(page).to have_content '削除'
+        expect(page).to have_content '募集中に戻す'
       end
     end
 
     context 'userBがログインしているとき' do
       let(:login_user) { user_b }
+      let(:finished) { false }
 
       it 'ログイン者と募集作成者が異なる場合' do
         expect(page).to have_no_content '編集'
         expect(page).to have_no_content '削除'
+        expect(page).to have_no_content '募集終了にする'
+        expect(page).to have_no_content '募集中に戻す'
       end
     end
   end
+
   describe '新規作成機能' do
     let(:login_user) { user_a }
 
@@ -80,9 +116,13 @@ describe '募集管理機能', type: :system do
       if post_level
         choose post_level
       end
-      fill_in '日時', with: post_datetime
+      fill_in '開始日時', with: post_datetime
+      fill_in '終了日時', with: post_end_datetime
       fill_in '場所', with: post_location
       fill_in '説明', with: post_discription
+      if post_image
+        attach_file(post_image)
+      end
       fill_in '締切', with: post_deadline
       within '.form_submit' do
         click_button '登録'
@@ -94,9 +134,11 @@ describe '募集管理機能', type: :system do
       let(:post_person) { 2 }
       let(:post_level) { '経験者以上' }
       let(:post_datetime) { Time.now + 2.days }
+      let(:post_end_datetime) { Time.now + 2.days + 2.hours }
       let(:post_location) { '東京都' }
       let(:post_discription) { '新規募集説明' }
       let(:post_deadline) { Time.now.tomorrow }
+      let(:post_image) { "app/assets/images/chat_demo.png" }
 
       it '正常に登録され一覧に表示される' do
         expect(page).to have_content '新規募集'
@@ -105,6 +147,7 @@ describe '募集管理機能', type: :system do
         expect(page).to have_content (Time.now + 2.days).to_s(:datetime_jp)
         expect(page).to have_content '東京都'
         expect(page).to have_content (Time.now.tomorrow).to_s(:datetime_jp)
+        expect(page).to have_selector ("img[src$='top_person.png'")
       end
     end
 
@@ -113,17 +156,21 @@ describe '募集管理機能', type: :system do
       let(:post_person) {  }
       let(:post_level) { nil }
       let(:post_datetime) {  }
+      let(:post_end_datetime) {  }
       let(:post_location) { '' }
       let(:post_discription) { '' }
       let(:post_deadline) {  }
+      let(:post_image) { nil }
 
       it 'エラーとなりその項目を入力してくださいと表示される' do
         expect(page).to have_content '題名を入力してください'
         expect(page).to have_content '人数を入力してください'
         expect(page).to have_content '対象を入力してください'
-        expect(page).to have_content '日時を入力してください'
+        expect(page).to have_content '開始日時を入力してください'
+        expect(page).to have_content '終了日時を入力してください'
         expect(page).to have_content '場所を入力してください'
         expect(page).to have_content '説明を入力してください'
+        expect(page).to have_content '画像を入力してください'
         expect(page).to have_content '締切を入力してください'
       end
     end
@@ -133,12 +180,14 @@ describe '募集管理機能', type: :system do
       let(:post_person) { 2 }
       let(:post_level) { '経験者以上' }
       let(:post_datetime) { Time.now }
+      let(:post_end_datetime) {Time.now + 2.hours }
       let(:post_location) { '東京都' }
       let(:post_discription) { '新規募集説明' }
       let(:post_deadline) { Time.now.tomorrow }
+      let(:post_image) { "app/assets/images/chat_demo.png" }
 
       it 'エラーとなり締切は開始日前のものを選択してくださいと表示される' do
-        expect(page).to have_content '締切は開始日前のものを選択してください'
+        expect(page).to have_content '締切は開始日時前のものを選択してください'
       end
     end
 
@@ -147,9 +196,11 @@ describe '募集管理機能', type: :system do
       let(:post_person) { 2 }
       let(:post_level) { '経験者以上' }
       let(:post_datetime) { Time.now.yesterday }
+      let(:post_end_datetime) { Time.now.yesterday + 2.hours }
       let(:post_location) { '東京都' }
       let(:post_discription) { '新規募集説明' }
       let(:post_deadline) { Time.now - 2.days }
+      let(:post_image) { "app/assets/images/chat_demo.png" }
 
       it 'エラーとなり日時は今日以降のものを選択してくださいと表示される' do
         expect(page).to have_content '日時は今日以降のものを選択してください'
