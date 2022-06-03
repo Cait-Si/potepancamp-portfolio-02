@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 require("src/post_image_upload.js")
+require("src/profile_photo_upload.js")
 
 Rails.start()
 Turbolinks.start()

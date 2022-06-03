@@ -44,6 +44,13 @@
   margin: 20px;
 }
 
+.index_profile_photo {
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
 .index_wrapper::after {
   display: block;
   content: "";
@@ -61,7 +68,7 @@ table {
   width: 50%;
   border-collapse: collapse;
   margin: auto;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 table img {
@@ -98,6 +105,7 @@ table th {
 
 .title_span {
   display: block;
+  text-align: center;
   width: 40%;
   font-size: 35px;
   border-bottom: solid 2px navy;
@@ -106,6 +114,12 @@ table th {
 
 .user_name_span {
   display: block;
+  text-align: right;
+}
+
+.user_name_wrapper {
+  display: inline-block;
+  width: 50%;
   text-align: right;
 }
 
@@ -209,8 +223,10 @@ table th {
 
 .description_field {
   text-align: left;
-  height: 150px;
+  height: auto;
+  min-height: 150px;
   border: 1px solid black;
+  padding: 10px;
 }
 
 .post_img {

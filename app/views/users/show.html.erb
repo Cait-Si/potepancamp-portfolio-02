@@ -1,35 +1,28 @@
-<div class="main_wrapper">
-  <span class="title_span">募集一覧</span>
-  <%= search_form_for @q, url: search_path, html: { class: "serch_form_wrapper" }  do |f| %>
-    <div class="field">
-      <%= f.label :location_cont, "都道府県から選択" %>
-      <%= f.collection_select(:location_cont, Prefecture.all, :key, :name ) %><br>
-    </div>
-    <div class="field">
-      <%= f.label :datetime_gteq, "開催日時から選択" %>
-      <%= f.date_field :datetime_gteq, include_blank: true, min: Date.today %>〜
-      <%= f.date_field :datetime_lteq_end_of_day, include_blank: true, min: Date.today %><br>
-    </div>
-    <div class="field" >
-      <%= f.label :title_or_location_cont, "題名か場所で検索" %>
-      <%= f.search_field :title_or_location_cont, class: "search_text" %>
-    </div>
-    <%= f.submit "検索", class: "search_submit" %>
-  <% end %>
+<span class="title_span">プロフィール</span>
+<div class="devise_form_wrapper">
+  <div class="profile_photo_wrapper">
+    <%= image_tag @user.profile_photo.url %>
+  </div>
+  <div class="edit_wrapper">
+    <% if @user.id == current_user.id %>
+      <%= link_to "編集する", edit_user_registration_path(current_user) %>
+    <% end %>
+  </div>
+  <table>
+    <tr>
+      <th>名前</th>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr>
+      <th>自己紹介</th>
+      <td><%= simple_format(@user.introduction) %></td>
+    </tr>
+  </table>
 </div>
-<div class="sort_wrapper">
-  <%= sort_link(@q, :datetime, "開始日順",default_order: :asc) %>
-  <%= sort_link(@q, :created_at, "新着順") %>
-</div>
+<span class="title_span">作成した募集一覧</span>
 <div class="index_wrapper">
-  <% @posts.each do |post| %>
+  <% @user.posts.each do |post| %>
     <div class="table_wrapper">
-      <span class="user_name_span">募集者：
-        <%= link_to user_path(post.user.id) do %>
-          <%= image_tag post.user.profile_photo.url, class: "index_profile_photo" %>
-          <%= post.user.name %>
-        <% end %>
-      </span>
       <table>
         <tr>
           <td colspan=4 class="td_img">

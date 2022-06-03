@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :messages
 
   validates :name, presence: true
+
+  mount_uploader :profile_photo, ProfilePhotoUploader
 end
