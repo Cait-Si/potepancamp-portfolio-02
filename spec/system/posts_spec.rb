@@ -147,7 +147,7 @@ describe '募集管理機能', type: :system do
         expect(page).to have_content (Time.now + 2.days).to_s(:datetime_jp)
         expect(page).to have_content '東京都'
         expect(page).to have_content (Time.now.tomorrow).to_s(:datetime_jp)
-        expect(page).to have_selector ("img[src$='top_person.png'")
+        expect(page).to have_selector ("img[src$='chat_demo.png'")
       end
     end
 
