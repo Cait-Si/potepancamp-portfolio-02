@@ -8,7 +8,7 @@ FactoryBot.define do
     location { 'test_location' }
     description { 'test_discription' }
     deadline { Time.now }
-    post_image { File.open("app/assets/images/top_person.png") }
+    post_image { File.open('app/assets/images/top_person.png') }
     user
 
     trait :skip_validation do

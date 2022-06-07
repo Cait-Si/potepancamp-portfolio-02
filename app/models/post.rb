@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
   validates :title, :person, :datetime, :location, :level, :description, :deadline, :post_image, :end_datetime, presence: true
   validate :date_before_start
