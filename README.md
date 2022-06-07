@@ -32,6 +32,7 @@ https://potepancamp-portfolio-02.herokuapp.com
 - サインアップ機能
 - ログイン機能
 - ログアウト機能
+- マイページ機能
 - 検索機能
 - チャット機能
 
