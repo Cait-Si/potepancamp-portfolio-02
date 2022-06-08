@@ -29,13 +29,13 @@
             <% if post.finished %>
               <span class="finished_mark">募集終了</span>
             <% end %>
-            <%= link_to image_tag(post.post_image.url), "posts/#{post.id}" %>
+            <%= link_to image_tag(post.post_image.url), "../posts/#{post.id}" %>
           </td>
         </tr>
         <tr>
           <th>題名</th>
           <td colspan=3>
-            <%= link_to post.title, "posts/#{post.id}" %>
+            <%= link_to post.title, "../posts/#{post.id}" %>
           </td>
         </tr>
         <tr>
