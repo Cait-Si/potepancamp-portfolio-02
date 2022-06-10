@@ -17,7 +17,7 @@
       level: "初心者歓迎",
       description: "test_discription_#{ m+1 }",
       deadline: Time.new(2022, 9, m+1, 12, 8),
-      post_image: File.open("app/assets/images/post_img.jpg"),
+      post_image: File.open("public/uploads/post/post_image/seed/post_img.jpg"),
       user_id: user.id,
     )
   end
