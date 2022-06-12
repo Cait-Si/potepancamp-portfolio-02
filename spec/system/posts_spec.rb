@@ -54,7 +54,7 @@ describe '募集管理機能', type: :system do
         expect(page).to have_content '初心者歓迎'
         expect(page).to have_content (Time.now.tomorrow).to_s(:datetime_jp)
         expect(page).to have_content (Time.now.tomorrow + 2.hours).to_s(:datetime_jp)
-        expect(page).to have_content 'test_location'
+        expect(page).to have_content '東京都新宿区1-1-1'
         expect(page).to have_content 'test_discription'
         expect(page).to have_content Time.now.to_s(:datetime_jp)
         expect(page).to have_selector ("img[src$='top_person.png']")
@@ -77,7 +77,7 @@ describe '募集管理機能', type: :system do
         expect(page).to have_content '初心者歓迎'
         expect(page).to have_content (Time.now.tomorrow).to_s(:datetime_jp)
         expect(page).to have_content (Time.now.tomorrow + 2.hours).to_s(:datetime_jp)
-        expect(page).to have_content 'test_location'
+        expect(page).to have_content '東京都新宿区1-1-1'
         expect(page).to have_content 'test_discription'
         expect(page).to have_content Time.now.to_s(:datetime_jp)
         expect(page).to have_selector ("img[src$='top_person.png']")
@@ -118,7 +118,7 @@ describe '募集管理機能', type: :system do
       end
       fill_in '開始日時', with: post_datetime
       fill_in '終了日時', with: post_end_datetime
-      fill_in '場所', with: post_location
+      fill_in '場所', with: post_address
       fill_in '説明', with: post_discription
       if post_image
         attach_file(post_image)
@@ -135,7 +135,7 @@ describe '募集管理機能', type: :system do
       let(:post_level) { '経験者以上' }
       let(:post_datetime) { Time.now + 2.days }
       let(:post_end_datetime) { Time.now + 2.days + 2.hours }
-      let(:post_location) { '東京都' }
+      let(:post_address) { '東京都千代田区1-1-1' }
       let(:post_discription) { '新規募集説明' }
       let(:post_deadline) { Time.now.tomorrow }
       let(:post_image) { "app/assets/images/chat_demo.png" }
@@ -145,7 +145,7 @@ describe '募集管理機能', type: :system do
         expect(page).to have_content '2'
         expect(page).to have_content '経験者以上'
         expect(page).to have_content (Time.now + 2.days).to_s(:datetime_jp)
-        expect(page).to have_content '東京都'
+        expect(page).to have_content '東京都千代田区1-1-1'
         expect(page).to have_content (Time.now.tomorrow).to_s(:datetime_jp)
         expect(page).to have_selector ("img[src$='chat_demo.png'")
       end
@@ -157,7 +157,7 @@ describe '募集管理機能', type: :system do
       let(:post_level) { nil }
       let(:post_datetime) {  }
       let(:post_end_datetime) {  }
-      let(:post_location) { '' }
+      let(:post_address) { '' }
       let(:post_discription) { '' }
       let(:post_deadline) {  }
       let(:post_image) { nil }
@@ -181,7 +181,7 @@ describe '募集管理機能', type: :system do
       let(:post_level) { '経験者以上' }
       let(:post_datetime) { Time.now }
       let(:post_end_datetime) {Time.now + 2.hours }
-      let(:post_location) { '東京都' }
+      let(:post_address) { '東京都千代田区1-1-1' }
       let(:post_discription) { '新規募集説明' }
       let(:post_deadline) { Time.now.tomorrow }
       let(:post_image) { "app/assets/images/chat_demo.png" }
@@ -197,7 +197,7 @@ describe '募集管理機能', type: :system do
       let(:post_level) { '経験者以上' }
       let(:post_datetime) { Time.now.yesterday }
       let(:post_end_datetime) { Time.now.yesterday + 2.hours }
-      let(:post_location) { '東京都' }
+      let(:post_address) { '東京都千代田区1-1-1' }
       let(:post_discription) { '新規募集説明' }
       let(:post_deadline) { Time.now - 2.days }
       let(:post_image) { "app/assets/images/chat_demo.png" }
@@ -219,7 +219,7 @@ describe '募集管理機能', type: :system do
       fill_in '題名', with: '編集した募集'
       fill_in '人数', with: 4
       choose '初心者歓迎'
-      fill_in '場所', with: '埼玉県'
+      fill_in '場所', with: '埼玉県越谷市'
       fill_in '説明', with: '編集した募集説明'
       within '.form_submit' do
         click_button '登録'
@@ -231,7 +231,7 @@ describe '募集管理機能', type: :system do
         expect(page).to have_content '編集した募集'
         expect(page).to have_content '4'
         expect(page).to have_content '初心者歓迎'
-        expect(page).to have_content '埼玉県'
+        expect(page).to have_content '埼玉県越谷市'
       end
     end
   end
