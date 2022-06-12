@@ -144,6 +144,7 @@ GEM
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
     formatador (1.1.0)
+    geocoder (1.8.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.10.0)
@@ -327,6 +328,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   fog-aws
+  geocoder
   jbuilder (~> 2.7)
   listen (~> 3.3)
   mini_magick

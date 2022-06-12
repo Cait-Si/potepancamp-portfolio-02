@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_03_045401) do
+ActiveRecord::Schema.define(version: 2022_06_12_005254) do
 
   create_table "messages", force: :cascade do |t|
     t.text "content", null: false
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2022_06_03_045401) do
     t.string "title", null: false
     t.integer "person", null: false
     t.datetime "datetime", null: false
-    t.string "location", null: false
     t.string "level", null: false
     t.text "description", null: false
     t.datetime "deadline", null: false
@@ -36,6 +35,9 @@ ActiveRecord::Schema.define(version: 2022_06_03_045401) do
     t.string "post_image", null: false
     t.datetime "end_datetime", null: false
     t.boolean "finished", default: false, null: false
+    t.string "address", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

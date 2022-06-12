@@ -245,3 +245,15 @@ table th {
 .hidden {
   display: none;
 }
+
+#map {
+  width: 80%;
+  height: 400px;
+  margin: auto;
+}
+
+.table_map{
+  border-right: none;
+  border-left: none;
+  border-bottom: none;
+}

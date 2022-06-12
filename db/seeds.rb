@@ -13,11 +13,11 @@
       person: n+1,
       datetime: Time.new(2022, 9, m+2, 12, 8),
       end_datetime: Time.new(2022, 9, m+2, 15, 8),
-      location: "test_location_#{ m+1 }",
+      address: "東京都新宿区3-1-1",
       level: "初心者歓迎",
       description: "test_discription_#{ m+1 }",
       deadline: Time.new(2022, 9, m+1, 12, 8),
-      post_image: File.open("public/uploads/post/post_image/seed/post_img.jpg"),
+      post_image: File.open("public/uploads/post/seed/post_img.jpg"),
       user_id: user.id,
     )
   end

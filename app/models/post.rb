@@ -2,12 +2,15 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :messages, dependent: :destroy
 
-  validates :title, :person, :datetime, :location, :level, :description, :deadline, :post_image, :end_datetime, presence: true
+  validates :title, :person, :datetime, :address, :level, :description, :deadline, :post_image, :end_datetime, presence: true
   validate :date_before_start
   validate :date_before_finish
   validate :date_before_deadline
 
   mount_uploader :post_image, PostImageUploader
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
   scope :by_date, -> { where(datetime: Date.today..).order(datetime: :asc) }
 

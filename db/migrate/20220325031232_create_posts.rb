@@ -4,7 +4,6 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.string :title,       null: false
       t.integer :person,     null: false
       t.datetime :datetime,  null: false
-      t.string :location,    null: false
       t.string :level,       null: false
       t.text :description,   null: false
       t.datetime :deadline,  null: false
