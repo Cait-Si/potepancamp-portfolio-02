@@ -1,0 +1,10 @@
+<div class="user_message_wrapper">
+  <div class="message_info">
+    <span class="message_created"><%= message.user.name %></span>
+    <%= message.created_at.to_s(:datetime_jp) %>
+  </div>
+  <div class="user_message">
+    <%= simple_format(message.content) %>
+  </div>
+</div>
+<%= hidden_field_tag :post_id, message.post_id %>

@@ -1,0 +1,99 @@
+<div class="main_wrapper">
+  <span class="title_span"><%= @post.title %></span>
+  <div class="post_img_wrapper">
+    <% if @post.finished %>
+      <span class="finished_mark">募集終了</span>
+    <% end %>
+    <%= image_tag @post.post_image.url %>
+  </div>
+  <div class="user_name_wrapper">募集者：
+      <%= link_to user_path(@post.user.id) do %>
+        <%= image_tag @post.user.profile_photo.url, class: "index_profile_photo" %>
+        <%= @post.user.name %>
+      <% end %>
+    </div>
+  <table>
+    <tr>
+      <th>人数：</th>
+      <td>
+        <%= @post.person %>
+      </td>
+      <th>対象：</th>
+      <td>
+        <%= @post.level %>
+      </td>
+    </tr>
+    <tr>
+      <th>日時：</th>
+      <td colspan=3>
+        <%= @post.datetime.to_s(:datetime_jp) %>〜<%= @post.end_datetime.to_s(:datetime_jp) %>
+      </td>
+    </tr>
+    <tr>
+      <th>締切：</th>
+      <td colspan=3>
+        <%= @post.deadline.to_s(:datetime_jp) %>
+      </td>
+    </tr>
+    <tr>
+      <th>場所：</th>
+      <td colspan=3>
+        <%= @post.address %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan=4, class="table_map" >
+        <div id="map"></div>
+      </td>
+    </tr>
+  </table>
+  <div class="edit_delete_wrapper">
+    <% if @post.user_id == current_user.id %>
+      <%= link_to "編集", "#{@post.id}/edit"%>
+      <%= link_to "削除", "#{@post.id}", method: :delete %>
+      <% if @post.finished %>
+        <%= link_to '募集中に戻す', post_path(@post.id, post: {finished: false}), method: :put %>
+      <% else %>
+        <%= link_to '募集終了にする', post_path(@post.id, post: {finished: true}), method: :put %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="description_wrapper">
+    <p>説明</p>
+    <div class="description_field"><%= simple_format(@post.description) %></div>
+  </div>
+  <div class="message_wrapper">
+    <p>質問・コメント</p>
+      <div id= <%= "messages#{@post.id}" %> >
+        <% @messages.each do |message|%>
+          <%= render "shared/message", message: message %>
+        <% end %>
+      </div>
+    <textarea data-behavior="room_speaker" class="room_message_form_textarea" data-post_id="<%= @post.id %>" placeholder="メッセージを入力(Shift+Enterで送信します)" ></textarea>
+  </div>
+</div>
+<script type="text/javascript">
+  function initMap() {
+    var test = {lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: test
+    });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+    var contentString = '住所：<%= @post.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+    var marker = new google.maps.Marker({
+      position:test,
+      map: map,
+      title: contentString
+    });
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+</script>

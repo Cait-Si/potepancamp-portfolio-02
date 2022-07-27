@@ -1,0 +1,77 @@
+<span class="title_span">プロフィール</span>
+<div class="devise_form_wrapper">
+  <div class="profile_photo_wrapper">
+    <%= image_tag @user.profile_photo.url %>
+  </div>
+  <div class="edit_wrapper">
+    <% if @user.id == current_user.id %>
+      <%= link_to "編集する", edit_user_registration_path(current_user) %>
+    <% end %>
+  </div>
+  <table>
+    <tr>
+      <th>名前</th>
+      <td><%= @user.name %></td>
+    </tr>
+    <tr>
+      <th>自己紹介</th>
+      <td><%= simple_format(@user.introduction) %></td>
+    </tr>
+  </table>
+</div>
+<span class="title_span">作成した募集一覧</span>
+<div class="index_wrapper">
+  <% @user.posts.each do |post| %>
+    <div class="table_wrapper">
+      <table>
+        <tr>
+          <td colspan=4 class="td_img">
+            <% if post.finished %>
+              <span class="finished_mark">募集終了</span>
+            <% end %>
+            <%= link_to image_tag(post.post_image.url), "../posts/#{post.id}" %>
+          </td>
+        </tr>
+        <tr>
+          <th>題名</th>
+          <td colspan=3>
+            <%= link_to post.title, "../posts/#{post.id}" %>
+          </td>
+        </tr>
+        <tr>
+          <th>人数</th>
+          <td>
+          <%= post.person %>
+          </td>
+          <th>対象</th>
+          <td>
+            <%= post.level %>
+          </td>
+        </tr>
+        <tr>
+          <th rowspan=2>日時</th>
+          <td colspan=3 class="bottom_border_none">
+            <%= post.datetime.to_s(:datetime_jp) %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan=3 class="top_border_none">
+            〜<%= post.end_datetime.to_s(:datetime_jp) %>
+          </td>
+        </tr>
+        <tr>
+          <th>場所</th>
+          <td colspan=3>
+            <%= post.address %>
+          </td>
+        </tr>
+        <tr>
+          <th>締切</th>
+          <td colspan=3>
+            <%= post.deadline.to_s(:datetime_jp) %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  <% end %>
+</div>

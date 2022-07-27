@@ -1,0 +1,259 @@
+.serch_form_wrapper {
+  display: block;
+  width: 40%;
+  border: 1px solid navy;
+  margin: 15px auto 50px auto;
+  padding: 1%;
+}
+
+.serch_form_wrapper label {
+  display: inline-block;
+  text-align: left;
+}
+
+.sort_wrapper {
+  margin: 20px 100px;
+}
+
+.search_text {
+  width: 55%;
+  height: 30px;
+}
+
+.search_submit {
+  width: 20%;
+  height: 30px;
+}
+
+.sort_wrapper a {
+  text-decoration-line: none;
+  border: 1px solid navy;
+  border-radius: 60%;
+  padding: 20px 10px
+}
+
+.index_wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 100px;
+}
+
+.table_wrapper {
+  width: 30%;
+  margin: 20px;
+}
+
+.index_profile_photo {
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.index_wrapper::after {
+  display: block;
+  content: "";
+  width: 30%;
+  margin: 20px;
+}
+
+.table_wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 50%;
+  border-collapse: collapse;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+table img {
+  width: 100%;
+  height: 250px;
+}
+
+table th, table td {
+  border: solid 1px black;
+  text-align: left;
+  padding: 3px;
+}
+
+table th {
+  width: 10%;
+}
+.bottom_border_none {
+  border-bottom: none;
+}
+
+.top_border_none {
+  border-top: none;
+}
+
+.td_img {
+  position: relative;
+  padding: 0;
+}
+
+.main_wrapper {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.title_span {
+  display: block;
+  text-align: center;
+  width: 40%;
+  font-size: 35px;
+  border-bottom: solid 2px navy;
+  margin: 15px auto 50px auto;
+}
+
+.user_name_span {
+  display: block;
+  text-align: right;
+}
+
+.user_name_wrapper {
+  display: inline-block;
+  width: 50%;
+  text-align: right;
+}
+
+.form_wrapper {
+  width: 50%;
+  text-align: center;
+  border: solid 4px navy;
+  margin: 0px auto;
+  padding: 2%;
+}
+
+.form {
+  width: 50%;
+  margin: auto;
+}
+
+.field {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.field input[type="text"] {
+  width: 100%;
+  height: 25px;
+}
+
+.field input[type= "number" ] {
+  width: 100%;
+  height: 25px;
+  text-align: center;
+}
+
+.field input[type="datetime-local"] {
+  width: 100%;
+  height: 25px;
+  text-align: center;
+}
+
+.field textarea {
+  width: 100%;
+  height: 100px;
+}
+
+.form_submit input[type="submit"] {
+  width: 100%;
+  height: 30px;
+  margin: 10px 0px;
+  border-color: rgb(210, 245, 255);
+  background-color: rgb(210, 245, 255);
+}
+
+.post_img_wrapper {
+  position: relative;
+  display: block;
+  width: 45%;
+  height: 350px;
+  margin: 0 auto 20px auto;
+}
+
+.post_img_wrapper img {
+  width: 90%;
+  height: 350px;
+}
+
+.finished_mark {
+  position: absolute;
+  text-align: center;
+  vertical-align:bottom;
+  width: 20%;
+  height: 50px;
+  line-height: 50px;
+  top: 0;
+  left: 0;
+  font-size: 20px;
+  border-radius: 50%;
+  color: white;
+  background: red;
+  padding:0 5px;
+}
+
+.td_img .finished_mark {
+  font-size: small;
+}
+
+.edit_delete_wrapper {
+  display: inline-block;
+  width: 50%;
+  text-align: right;
+}
+
+.description_wrapper {
+  display: inline-block;
+  width: 50%;
+}
+
+.description_wrapper p {
+  text-align: left;
+  font-size: large;
+  font-weight: bold;
+}
+
+.description_field {
+  text-align: left;
+  height: auto;
+  min-height: 150px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.post_img {
+  height: 60%;
+  width: 60%;
+  object-fit: cover;
+}
+
+#post_img_prev {
+  height: 60%;
+  width: 60%;
+  object-fit: cover;
+  border: 1px solid black;
+}
+
+.hidden {
+  display: none;
+}
+
+#map {
+  width: 80%;
+  height: 400px;
+  margin: auto;
+}
+
+.table_map{
+  border-right: none;
+  border-left: none;
+  border-bottom: none;
+}

@@ -1,0 +1,23 @@
+<div class="main_wrapper">
+  <div class="top_image_wrapper" >
+    <%= image_tag 'top_person.png', class: 'top_image' %>
+    <span class="top_image_content" >ドタキャンに困っていませんか？</span>
+  </div>
+  <div class="top_content_wrapper" >
+    <h1>今からこれるヒトとは....</h1>
+    <p>スポーツやゲームを企画したとき、土壇場でのキャンセルが発生し困っている人と</p>
+    <p>体を動かしたい人や空き時間を持て余している人などを結びつける掲示板です！</p>
+  </div>
+</div>
+<div class="sub_wrapper" >
+  <h1>今からこれるヒトの特徴</h1>
+  <p>サイト内にお問合せチャットがあるので、連絡先を伝えなくてもやりとりすることが可能になります。</p>
+  <%= image_tag 'chat_demo', class: 'chat_demo_image' %>
+</div>
+<% unless user_signed_in? %>
+  <div class="main_wrapper">
+    <h3>アカウトを作成し、利用してみてください！</h3>
+    <%= link_to "新規登録", new_user_registration_path, class: "top_btn" %>
+    <%= link_to "ログイン", new_user_session_path, class: "top_btn" %>
+  </div>
+<% end %>

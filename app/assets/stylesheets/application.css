@@ -1,15 +1,164 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
  *= require_self
- */
+ *= require posts.css
+ *= require top.css
+*/
+
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.header_wrapper {
+  width: 90%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(210, 245, 255);
+  padding: 0 5%;
+}
+
+.header_link {
+  font-size: 20px;
+}
+
+.devise_form_wrapper {
+  width: 50%;
+  text-align: center;
+  border: solid 4px navy;
+  margin: 100px auto;
+  padding: 2%;
+}
+
+.devise_form_wrapper h1, h2 {
+  display: inline-block;
+  width: 50%;
+  border-bottom: solid 2px navy;
+}
+
+.devise_form {
+  width: 50%;
+  margin: auto;
+}
+
+.devise_field {
+  text-align: left;
+}
+
+.devise_field input[type="text"] {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 15px;
+}
+
+.devise_field input[type="email"] {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 15px;
+}
+
+.devise_field textarea {
+  width: 100%;
+  height: 100px;
+}
+
+.devise_field input[type="password"] {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 15px;
+}
+
+.devise_form_submit input[type="submit"] {
+  width: 100%;
+  height: 30px;
+  margin: 10px 0px;
+}
+
+.li_no_deco {
+  text-align: initial;
+}
+
+.message_wrapper {
+  display: inline-block;
+  width: 50%;
+}
+
+div[id^="messages"] {
+  height: 200px;
+  overflow-y: scroll;
+  border: 1px solid black;
+  margin: 20px 0;
+}
+
+.message_wrapper p {
+  text-align: left;
+  font-size: large;
+  font-weight: bold;
+}
+
+.message_wrapper textarea {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.user_message_wrapper {
+  text-align: left;
+  margin: 7px 0 10px 7px;
+}
+
+.user_message {
+  display: inline-block;
+  word-break: break-all;
+  padding: 8px;
+}
+
+.user_message p {
+  font-size: 15px;
+  margin: 0;
+}
+
+.message_info {
+  display: block;
+  font-size: 3px;
+  border-bottom: 1px solid black;
+  margin-bottom: 3px;
+}
+
+.message_created {
+  font-size: 15px;
+  margin-right: 3px;
+}
+
+#profile_photo_prev {
+  height: 60%;
+  width: 60%;
+  object-fit: cover;
+  border: 1px solid black;
+}
+
+.profile_photo_wrapper {
+  margin: 20px auto;
+}
+
+.profile_photo_wrapper img {
+  width: 150px;
+  height: 150px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.devise_form_wrapper table{
+  width: 80%;
+}
+
+.devise_form_wrapper th {
+  width: 15%;
+  text-align: center;
+}
+
+.edit_wrapper {
+  display: inline-block;
+  width: 80%;
+  text-align: right;
+}
